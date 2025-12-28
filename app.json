@@ -6,13 +6,13 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "scheme": "my-expenses-app",
+    "scheme": "myexpensesapp",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.hugosoaresbrandao.myexpensesapp"
