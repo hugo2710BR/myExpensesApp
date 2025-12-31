@@ -21,7 +21,7 @@ export default function Splash() {
   }, []);
 
   return (
-    <LinearGradient colors={["#667eea", "#764ba2"]} style={styles.container}>
+    <LinearGradient colors={["#0172B2", "#001645"]} style={styles.container}>
       <Animated.Image
         source={require("../../assets/logo.png")}
         resizeMode="contain"
