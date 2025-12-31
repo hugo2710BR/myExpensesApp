@@ -2,6 +2,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { useHomeScreenHelper } from "./home.hook";
+import { Header } from "../../../components";
 
 export default function Home() {
   const { householdName, loading, userName } = useHomeScreenHelper();
@@ -15,10 +16,16 @@ export default function Home() {
           <ActivityIndicator size="large" color={"black"} />
         </View>
       ) : (
-        <View style={styles.container}>
-          <Text>Olá, {userName} 👋</Text>
-          <Text>Household: {householdName}</Text>
-        </View>
+        <>
+          <Header
+            middleContent={`Bem-vindo, ${userName}`}
+            endContent={<Text>teste</Text>}
+          />
+          <View style={styles.container}>
+            <Text></Text>
+            <Text>Household: {householdName}</Text>
+          </View>
+        </>
       )}
     </>
   );
@@ -29,7 +36,6 @@ const styles = StyleSheet.create({
     flex: 1, // ocupa a tela inteira
     padding: 20,
     backgroundColor: "#ffffffff",
-    justifyContent: "center",
   },
   label: {
     marginBottom: 4,
