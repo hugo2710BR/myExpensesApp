@@ -1,49 +1,90 @@
-import React, { useState } from "react";
-import { View, TextInput, Button, Alert, Text, StyleSheet } from "react-native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../services/firebase";
-import { createHousehold } from "../../../hooks/createHouseHold.hook";
+import React from "react";
+import { View, TextInput, Button, Image, Text, StyleSheet } from "react-native";
 import { useRegisterScreenHelper } from "./register.hook";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Register() {
+  const {
+    email,
+    householdName,
+    onClickToGoToLogin,
+    onClickToRegister,
+    password,
+    setEmail,
+    setHouseholdName,
+    setPassword,
+    name,
+    setName,
+  } = useRegisterScreenHelper();
 
-  const {email, householdName, onClickToGoToLogin, onClickToRegister, password, setEmail, setHouseholdName, setPassword} = useRegisterScreenHelper()
-  
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Email:</Text>
-      <TextInput
-        placeholder="Digite seu email"
-        value={email}
-        onChangeText={setEmail}
-        style={styles.input}
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
-
-      <Text style={styles.label}>Senha:</Text>
-      <TextInput
-        placeholder="Digite sua senha"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-        style={styles.input}
-      />
-
-      <Text style={styles.label}>Nome do Household:</Text>
-      <TextInput
-        placeholder="Ex: Família Silva"
-        value={householdName}
-        onChangeText={setHouseholdName}
-        style={styles.input}
-      />
-
-      <Button title="Cadastrar" onPress={onClickToRegister} />
-      <View style={{ marginTop: 16 }}>
-        <Button title="Já tenho conta / Logar" onPress={onClickToGoToLogin} />
+    <LinearGradient colors={["#0172B2", "#001645"]} style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Image
+          source={require("../../../../assets/logo.png")}
+          resizeMode="contain"
+          style={styles.logo}
+        />
       </View>
-    </View>
+      <View style={styles.inputsContainer}>
+        <Text style={styles.label}>Nome</Text>
+        <TextInput
+          placeholder="Digite o seu Nome"
+          value={name}
+          onChangeText={setName}
+          style={styles.input}
+          keyboardType="ascii-capable"
+          autoCapitalize="words"
+        />
+        <Text style={styles.label}>Email</Text>
+        <TextInput
+          placeholder="Digite o seu email"
+          value={email}
+          onChangeText={setEmail}
+          style={styles.input}
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+
+        <Text style={styles.label}>Senha</Text>
+        <TextInput
+          placeholder="Digite a sua password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+          style={styles.input}
+        />
+
+        <Text style={styles.label}>Nome do Household</Text>
+        <TextInput
+          placeholder="Ex: Família Silva"
+          value={householdName}
+          onChangeText={setHouseholdName}
+          style={styles.input}
+        />
+        <View
+          style={{
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.button}>
+            <Button
+              color={"black"}
+              title="Entrar"
+              onPress={onClickToRegister}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button
+              color={"black"}
+              title="Já tenho conta"
+              onPress={onClickToGoToLogin}
+            />
+          </View>
+        </View>
+      </View>
+    </LinearGradient>
   );
 }
 
@@ -51,19 +92,48 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, // ocupa a tela inteira
     padding: 20,
-    backgroundColor: "#c4c2ffff",
     justifyContent: "center",
+  },
+  inputsContainer: {
+    backgroundColor: "#f5f5f54d",
+    alignItems: "center",
+    borderRadius: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    display: "flex",
+    flexDirection: "column",
   },
   label: {
     marginBottom: 4,
+    fontSize: 16,
     fontWeight: "bold",
+    color: "#fff",
   },
   input: {
-    borderWidth: 1,
+    width: "70%",
     borderColor: "#aaa",
-    padding: 8,
-    marginBottom: 12,
-    borderRadius: 6,
+    padding: 12,
+    marginBottom: 18,
+    borderRadius: 16,
     backgroundColor: "#fff",
+  },
+  button: {
+    width: "50%",
+    marginTop: 16,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    backgroundColor: "#fff",
+    borderStyle: "solid",
+    borderColor: "none",
+    borderRadius: 24,
+    textAlign: "center",
+  },
+  logoContainer: {
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  logo: {
+    width: 180,
+    height: 180,
   },
 });

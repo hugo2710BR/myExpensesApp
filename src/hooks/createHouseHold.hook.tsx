@@ -1,7 +1,10 @@
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../services/firebase";
 
-export const createHousehold = async (userId: string, householdName: string) => {
+export const createHousehold = async (
+  userId: string,
+  householdName: string
+): Promise<string> => {
   const docRef = await addDoc(collection(db, "households"), {
     name: householdName,
     members: [userId],
