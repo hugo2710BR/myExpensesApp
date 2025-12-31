@@ -26,56 +26,62 @@ export default function Register() {
           style={styles.logo}
         />
       </View>
-      <Text style={styles.label}>Nome:</Text>
-      <TextInput
-        placeholder="Digite o seu Nome"
-        value={name}
-        onChangeText={setName}
-        style={styles.input}
-        keyboardType="ascii-capable"
-        autoCapitalize="words"
-      />
-      <Text style={styles.label}>Email:</Text>
-      <TextInput
-        placeholder="Digite o seu email"
-        value={email}
-        onChangeText={setEmail}
-        style={styles.input}
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
+      <View style={styles.inputsContainer}>
+        <Text style={styles.label}>Nome</Text>
+        <TextInput
+          placeholder="Digite o seu Nome"
+          value={name}
+          onChangeText={setName}
+          style={styles.input}
+          keyboardType="ascii-capable"
+          autoCapitalize="words"
+        />
+        <Text style={styles.label}>Email</Text>
+        <TextInput
+          placeholder="Digite o seu email"
+          value={email}
+          onChangeText={setEmail}
+          style={styles.input}
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
 
-      <Text style={styles.label}>Senha:</Text>
-      <TextInput
-        placeholder="Digite a sua password"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-        style={styles.input}
-      />
+        <Text style={styles.label}>Senha</Text>
+        <TextInput
+          placeholder="Digite a sua password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+          style={styles.input}
+        />
 
-      <Text style={styles.label}>Nome do Household:</Text>
-      <TextInput
-        placeholder="Ex: Família Silva"
-        value={householdName}
-        onChangeText={setHouseholdName}
-        style={styles.input}
-      />
-      <View
-        style={{
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
-        <View style={styles.button}>
-          <Button color={"black"} title="Entrar" onPress={onClickToRegister} />
-        </View>
-        <View style={styles.button}>
-          <Button
-            color={"black"}
-            title="Já tenho conta"
-            onPress={onClickToGoToLogin}
-          />
+        <Text style={styles.label}>Nome do Household</Text>
+        <TextInput
+          placeholder="Ex: Família Silva"
+          value={householdName}
+          onChangeText={setHouseholdName}
+          style={styles.input}
+        />
+        <View
+          style={{
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.button}>
+            <Button
+              color={"black"}
+              title="Entrar"
+              onPress={onClickToRegister}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button
+              color={"black"}
+              title="Já tenho conta"
+              onPress={onClickToGoToLogin}
+            />
+          </View>
         </View>
       </View>
     </LinearGradient>
@@ -88,23 +94,33 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
   },
+  inputsContainer: {
+    backgroundColor: "#f5f5f54d",
+    alignItems: "center",
+    borderRadius: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    display: "flex",
+    flexDirection: "column",
+  },
   label: {
     marginBottom: 4,
+    fontSize: 16,
     fontWeight: "bold",
     color: "#fff",
   },
   input: {
-    borderWidth: 1,
+    width: "70%",
     borderColor: "#aaa",
-    padding: 8,
-    marginBottom: 12,
-    borderRadius: 6,
+    padding: 12,
+    marginBottom: 18,
+    borderRadius: 16,
     backgroundColor: "#fff",
   },
   button: {
     width: "50%",
     marginTop: 16,
-    paddingVertical: 8,
+    paddingVertical: 4,
     paddingHorizontal: 8,
     backgroundColor: "#fff",
     borderStyle: "solid",

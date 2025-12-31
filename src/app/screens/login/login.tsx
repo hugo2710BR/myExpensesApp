@@ -22,37 +22,39 @@ export default function Login() {
           style={styles.logo}
         />
       </View>
-      <Text style={styles.label}>Email:</Text>
-      <TextInput
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        style={styles.input}
-      />
+      <View style={styles.inputsContainer}>
+        <Text style={styles.label}>Email</Text>
+        <TextInput
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+          style={styles.input}
+        />
 
-      <Text style={styles.label}>Password:</Text>
-      <TextInput
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-        style={styles.input}
-      />
-      <View
-        style={{
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
-        <View style={styles.button}>
-          <Button color={"black"} title="Entrar" onPress={onClickToLogin} />
-        </View>
-        <View style={styles.button}>
-          <Button
-            color={"black"}
-            title="Não tenho conta"
-            onPress={onClickToRegister}
-          />
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          placeholder="Password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+          style={styles.input}
+        />
+        <View
+          style={{
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.button}>
+            <Button color={"black"} title="Entrar" onPress={onClickToLogin} />
+          </View>
+          <View style={styles.button}>
+            <Button
+              color={"black"}
+              title="Não tenho conta"
+              onPress={onClickToRegister}
+            />
+          </View>
         </View>
       </View>
     </LinearGradient>
@@ -65,23 +67,33 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
   },
+  inputsContainer: {
+    backgroundColor: "#f5f5f54d",
+    alignItems: "center",
+    borderRadius: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    display: "flex",
+    flexDirection: "column",
+  },
   label: {
-    marginBottom: 4,
+    marginBottom: 8,
+    fontSize: 16,
     fontWeight: "bold",
     color: "#fff",
   },
   input: {
-    borderWidth: 1,
+    width: "70%",
     borderColor: "#aaa",
-    padding: 8,
-    marginBottom: 12,
-    borderRadius: 6,
+    padding: 12,
+    marginBottom: 18,
+    borderRadius: 16,
     backgroundColor: "#fff",
   },
   button: {
     width: "50%",
     marginTop: 16,
-    paddingVertical: 8,
+    paddingVertical: 4,
     paddingHorizontal: 8,
     backgroundColor: "#fff",
     borderStyle: "solid",
